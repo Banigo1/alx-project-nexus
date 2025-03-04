@@ -1,4 +1,5 @@
-# Introduction to project Nexus Prodev BE
+# Pollify (Poll System Backend) 
+  This project is a robust Django-based backend for an online poll system that provides APIs for poll creation, voting, and real-time result computation with user authentication and authorization.
 
 Project Nexus is a key milestone in the ProDev Backend Engineering program. It serves as the capstone experience where learners demonstrate their ability to apply backend development skills to a real-world project. The goal is to showcase knowledge, creativity, and technical ability by building a fully functional backend system.
 
@@ -59,13 +60,34 @@ Start Date: February 24th, 2025
 Deadline for Submission: March 7th, 2025
 Presentation Dates: March 10th to 14th, 2025
 
-## How to Submit the Project Successfully?
 
-### You will need to submit:
 
-GitHub Repository
-Presentation Slides
-Video DEMO
+## API Endpoints
+
+The following API endpoints are available:
+
+### Polls
+
+- `GET /api/polls/` - List all polls
+- `POST /api/polls/` - Create a new poll
+- `GET /api/polls/{id}/` - Get a specific poll
+- `PUT /api/polls/{id}/` - Update a poll
+- `DELETE /api/polls/{id}/` - Delete a poll
+- `GET /api/polls/{id}/results/` - Get poll results
+- `POST /api/polls/{id}/add_options/` - Add options to a poll
+- `GET /api/active-polls/` - List all active polls
+
+### Votes
+
+- `POST /api/votes/` - Cast a vote
+
+## API Documentation
+
+API documentation is available at:
+
+- Swagger UI: `/api/docs/`
+- ReDoc: `/api/redoc/`
+- Swagger JSON: `/api/docs/swagger.json`
 
 ## Project Nexus: How Mentors Score
 
@@ -116,7 +138,6 @@ Database Design & Efficiency – Well-optimized schema with indexing, normalizat
 Security & Performance – Strong authentication, security best practices, and high performance.
 Documentation & Presentation – Well-structured README, API documentation, and confident presentation.
 
-🌟 How Do We Identify Outstanding Projects?
 
 We look for projects that go beyond a good idea and execution, showing thorough research, testing, and perspective.
 
@@ -144,5 +165,3 @@ Scalable architecture with message queues and background tasks.
 Thorough testing with unit and integration tests.
 Security considerations such as rate limiting and input validation.
 Project Nexus is your chance to demonstrate mastery in backend development. Take advantage of the available resources, ask for help, and push yourself to build something impactful!
-
-Good luck, and may your code be bug-free! 🚀
