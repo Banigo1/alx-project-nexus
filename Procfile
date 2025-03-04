@@ -1,1 +1,1 @@
-web: gunicorn poll_system.wsgi
+web: gunicorn poll_system.wsgi --log-file -
