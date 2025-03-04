@@ -9,13 +9,18 @@ The objective of this project is to: - Consolidate key learnings from the ProDev
 ## Key Features:
 
     Comprehensive Documentation: Covers backend engineering concepts such as RESTful APIs, GraphQL APIs, Message Queues, CI/CD Pipelines, Celery & RabbitMQ, and System Design.
+
     Challenges & Solutions: Includes real-world challenges faced and implemented solutions.
+
     Best Practices & Takeaways: Highlights industry best practices and personal insights.
+
     Collaboration Hub: Encourages teamwork between frontend and backend learners.
+
     Collaboration - Key for Success
 
     Collaborate with Whom?
     Fellow ProDev Frontend Learners: Exchange ideas, develop synergies, organize study/coding sessions. Maximize your potential and that of your colleagues!
+    
     ProDev Backend Learners: Collaboration with backend learners is essential, as you will use their endpoints to complete your project.
     
     Where to Collaborate?
