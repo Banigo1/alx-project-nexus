@@ -30,9 +30,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =True
 
-ALLOWED_HOSTS = ['pollify.up.railway.app', 'https://pollify.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'pollify.up.railway.app', 'https://pollify.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = ['https://pollify.up.railway.app']
 
@@ -46,11 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework.authtoken',
     'rest_framework',
     'drf_yasg',
     'corsheaders',
     'polls',
-    'rest_framework.authtoken',
+    
 ]
 
 MIDDLEWARE = [
