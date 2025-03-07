@@ -56,7 +56,26 @@ class Option(models.Model):
     
     def __str__(self):
         return self.text
+ 
 
+class Vote(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    option = models.ForeignKey('Option', on_delete=models.CASCADE, related_name='votes')
+    poll = models.ForeignKey('Poll', on_delete=models.CASCADE, related_name='votes')
+    voted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'votes'
+        indexes = [
+            models.Index(fields=['option']),
+            models.Index(fields=['voted_at']),
+            models.Index(fields=['poll']),
+        ]  # Removed voter_id-related index
+
+    def __str__(self):
+        return f"Vote for {self.option} in poll {self.poll}"
+
+'''
 class Vote(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     option = models.ForeignKey('Option', on_delete=models.CASCADE, related_name='votes')
@@ -81,3 +100,4 @@ class Vote(models.Model):
 
     def __str__(self):
         return f"Vote for {self.option} in poll {self.poll}"
+        '''
