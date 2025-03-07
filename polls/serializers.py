@@ -31,7 +31,7 @@ class PollSerializer(serializers.ModelSerializer):
 class VoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vote
-        fields = ['id', 'option', 'voter_id', 'voted_at']
+        fields = ['id', 'option', 'voted_at']
         read_only_fields = ['id', 'voted_at']
     
     def validate(self, data):
