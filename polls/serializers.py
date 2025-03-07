@@ -45,14 +45,14 @@ class VoteSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("This poll has expired.")
         
         # Check if voter has already voted in this poll
-        voter_id = data['voter_id']
-        existing_votes = Vote.objects.filter(
-            option__poll=poll, 
-            voter_id=voter_id
-        ).exists()
+        # voter_id = data['voter_id']
+        # existing_votes = Vote.objects.filter(
+        #     option__poll=poll, 
+        #     voter_id=voter_id
+        # ).exists()
         
-        if existing_votes:
-            raise serializers.ValidationError("You have already voted in this poll.")
+        # if existing_votes:
+        #     raise serializers.ValidationError("You have already voted in this poll.")
         
         return data
 

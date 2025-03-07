@@ -61,16 +61,16 @@ class Vote(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     option = models.ForeignKey('Option', on_delete=models.CASCADE, related_name='votes')
     poll = models.ForeignKey('Poll', on_delete=models.CASCADE, related_name='votes')
-    voter_id = models.CharField(max_length=255)
+    # voter_id = models.CharField(max_length=255)
     voted_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'votes'
         indexes = [
             models.Index(fields=['option']),
-            models.Index(fields=['voter_id']),
+            # models.Index(fields=['voter_id']),
             models.Index(fields=['voted_at']),
-            models.Index(fields=['poll', 'voter_id']),
+            models.Index(fields=['poll']),
         ]
         # constraints = [
         #     models.UniqueConstraint(
