@@ -104,7 +104,7 @@ API documentation is available at:
 ### Creating a Poll
 
 ```bash
-curl -X POST "http://localhost:8000/api/polls/" \
+curl -X POST "https://pollify.up.railway.app//api/polls/" \
      -H "Content-Type: application/json" \
      -d '{
         "title": "Favorite Programming Language",
@@ -122,7 +122,7 @@ curl -X POST "http://localhost:8000/api/polls/" \
 ### Casting a Vote
 
 ```bash
-curl -X POST "http://localhost:8000/api/votes/" \
+curl -X POST "https://pollify.up.railway.app//api/votes/" \
      -H "Content-Type: application/json" \
      -d '{
         "option": "option_id_here",
@@ -133,7 +133,7 @@ curl -X POST "http://localhost:8000/api/votes/" \
 ### Getting Poll Results
 
 ```bash
-curl -X GET "http://localhost:8000/api/polls/poll_id_here/results/"
+curl -X GET "https://pollify.up.railway.app//api/polls/poll_id_here/results/"
 ```
 
 ## Database Schema
