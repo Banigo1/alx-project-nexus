@@ -16,9 +16,7 @@
 - Swagger (via drf-yasg)
 - Python 3.8+
 
-## Installation
-
-### Prerequisites
+## Prerequisites
 
 - Python 3.8+
 - PostgreSQL
