@@ -72,12 +72,12 @@ class Vote(models.Model):
             models.Index(fields=['voted_at']),
             models.Index(fields=['poll', 'voter_id']),
         ]
-        constraints = [
-            models.UniqueConstraint(
-                fields=['voter_id', 'poll'],
-                name='unique_voter_per_poll'
-            )
-        ]
+        # constraints = [
+        #     models.UniqueConstraint(
+        #         fields=['voter_id', 'poll'],
+        #         name='unique_voter_per_poll'
+        #     )
+        # ]
 
     def __str__(self):
         return f"Vote for {self.option} in poll {self.poll}"

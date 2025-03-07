@@ -136,11 +136,14 @@ curl -X GET "https://pollify.up.railway.app//api/polls/poll_id_here/results/"
 
 ## Database Schema
 
+The schema defines three Django models: Poll, Option, and Vote. These models are designed to manage polls, their options, and the votes cast for those options
+
 The database schema consists of three main tables:
 
 - **polls**: Stores poll information including title, description, and expiry date
 - **poll_options**: Stores options for each poll
 - **votes**: Stores vote information linking voters to their chosen options
+
 
 ## Performance Optimization
 
