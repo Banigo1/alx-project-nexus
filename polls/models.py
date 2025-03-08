@@ -60,7 +60,7 @@ class Option(models.Model):
 
 class Vote(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    # option = models.ForeignKey(Option, on_delete=models.CASCADE, related_name='votes')
+    option = models.ForeignKey(Option, on_delete=models.CASCADE, related_name='votes')
     # voter_id = models.CharField(max_length=255, db_index=True) # Ensuring efficient lookups
     voter_id = models.CharField(max_length=255, null=True, blank=True)
     voted_at = models.DateTimeField(auto_now_add=True)
