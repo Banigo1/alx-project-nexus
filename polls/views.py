@@ -5,6 +5,9 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Count
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework.permissions import AllowAny
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+
 
 from .models import Poll, Option, Vote
 from .serializers import (
@@ -21,6 +24,9 @@ class PollViewSet(viewsets.ModelViewSet):
     """
     queryset = Poll.objects.all().order_by('-created_at')
     serializer_class = PollSerializer
+    authentication_classes = []  # Disable authentication
+    permission_classes = [AllowAny]  # Allow public access
+
     
     @swagger_auto_schema(
         operation_description="Retrieve poll results with vote counts",
@@ -75,7 +81,9 @@ class VoteCreateView(generics.CreateAPIView):
     API endpoint for casting a vote.
     """
     serializer_class = VoteSerializer
-    
+    authentication_classes = []
+    permission_classes = [AllowAny]
+
     @swagger_auto_schema(
         operation_description="Cast a vote for a poll option",
         request_body=VoteSerializer,
@@ -85,11 +93,25 @@ class VoteCreateView(generics.CreateAPIView):
         }
     )
     def create(self, request, *args, **kwargs):
+        print("Incoming vote request:", request.data)  # Debugging line
+
+        required_fields = ["option", "poll"]  # Ensure these fields are sent
+        missing_fields = [field for field in required_fields if field not in request.data]
+
+        if missing_fields:
+            return Response(
+                {"error": f"Missing fields: {', '.join(missing_fields)}"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+
+        print("Vote successfully recorded:", serializer.data)  # Debugging line
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
 
 
 class ActivePollsView(generics.ListAPIView):
