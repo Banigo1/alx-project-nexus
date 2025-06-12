@@ -1,2 +1,5 @@
 .env
 pollenv/
+__pycache__/
+*.py[cod]   <|diff_marker|>/
+Project _Nexus_Documentation.md
