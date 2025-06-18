@@ -35,12 +35,13 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('polls.urls')),
+    path('api/', include('polls.urls'), name='Api Root'),
+    path('api/polls/', include('polls.urls'), name='Poll List'),
+    path('api/polls/polls', include('polls.urls'), name='Poll Instance'),
     
     # Swagger URLs
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='Schema-Swagger-Ui'),
-    path('api/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='Schema-Redoc'),
-    path('api/docs/swagger.json', schema_view.without_ui(cache_timeout=0), name='Schema-JSON'),
 ]

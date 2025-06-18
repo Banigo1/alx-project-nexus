@@ -7,8 +7,6 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from rest_framework.permissions import AllowAny
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-
-
 from .models import Poll, Option, Vote
 from .serializers import (
     PollSerializer, 

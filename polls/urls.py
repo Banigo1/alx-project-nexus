@@ -7,6 +7,6 @@ router.register(r'polls', PollViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('votes/', VoteCreateView.as_view(), name='vote-create'),
-    path('active-polls/', ActivePollsView.as_view(), name='active-polls'),
+    path('', VoteCreateView.as_view(), name='vote-create'),
+    path('', ActivePollsView.as_view(), name='active-polls'),
 ]

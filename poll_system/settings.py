@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG =True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'pollify.up.railway.app', 'https://pollify.up.railway.app']
 
@@ -92,7 +92,12 @@ WSGI_APPLICATION = 'poll_system.wsgi.application'
 
 DATABASES = {
 
-'default': dj_database_url.config(default=os.getenv('DATABASE_URL')),   
+     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+        # 'default': dj_database_url.config(default=os.getenv('DATABASE_URL')),
+
 }
 
 # Password validation
@@ -148,7 +153,7 @@ REST_FRAMEWORK = {
 }
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict in production
+CORS_ALLOW_ALL_ORIGINS = False  # For development; restrict in production
 
 # Swagger settings
 SWAGGER_SETTINGS = {
