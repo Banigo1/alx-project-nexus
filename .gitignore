@@ -3,4 +3,4 @@ pollenv/
 __pycache__/
 *.py[cod]   <|diff_marker|>/
 Project _Nexus_Documentation.md
-db.sqlite3
+*db.sqlite3
